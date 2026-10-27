@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strategy-validation-toolkit"
+version = "0.1.0"
+description = "Statistical tools for assessing backtest selection bias"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["svt*"]
+
+[tool.setuptools.package-data]
+svt = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-p no:cacheprovider --basetemp=.test-tmp"
